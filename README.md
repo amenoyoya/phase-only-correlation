@@ -86,3 +86,37 @@ $ pip install opencv-python
         ```bash
         $ node screenshot.js
         ```
+
+***
+
+## 位相限定相関
+
+### 単純な計算
+- **poc.py**
+    ```python
+    import numpy as np
+    import cv2
+
+    # 画像を読み込み Array{Float32,1} に変換
+    def load_img(filename: str) -> np.ndarray:
+        # cv2.imread の第2引数を0にするとグレースケールで読み込む
+        return np.float32(cv2.imread(filename, 0))
+
+    if __name__ == "__main__":
+        # sample1, sample2 画像読み込み
+        img1: np.ndarray = load_img('./puppeteer/screenshot/sample1.png')
+        img2: np.ndarray = load_img('./puppeteer/screenshot/sample2.png')
+        # 位相限定相関を計算
+        (dx, dy), etc = cv2.phaseCorrelate(img1, img2)
+        print(f'({dx}, {dy}), {etc}')
+    ```
+- 実行結果:
+    ```bash
+    $ python poc.py
+    (0.010397262925721407, -0.001163075541398939), 0.7413033304850261
+    ```
+    - 横のズレ: ~0.0104
+    - 縦のズレ: ~0.0012
+    - 一致率: ~74 %
+- 考察:
+    - 行ごとのズレがある以上、各行を一つのオブジェクトとして各々のズレを検出しないと意味がない
