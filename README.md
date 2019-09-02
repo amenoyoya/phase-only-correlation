@@ -9,6 +9,8 @@
     - 言語・フレームワーク
         - Python: `3.7.0`
         - Flask: `1.0.2`
+        - NumPy: `1.15.1`
+        - OpenCV: `4.1.0`
 - スクリーンショット撮影
     - サンプルサイトのスクリーンショット撮影
     - 言語・フレームワーク
@@ -20,11 +22,25 @@
 
 ## Setup
 
-### Install Puppetter
+### Install Puppeteer
 ```bash
 # Puppeteer: Headless Chrome Browser API
 $ yarn add -D puppeteer
 ```
+
+
+### Install Python packages
+```bash
+# Flask: Micro web framework
+$ pip install flask
+
+# NumPy: Efficient multi-dimensional container of generic data
+$ pip install numpy
+
+# OpenCV: Library including several hundreds of computer vision algorithms
+$ pip install opencv-python
+```
+
 
 ### Test run
 - サンプルサイト準備
