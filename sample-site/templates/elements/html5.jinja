@@ -8,6 +8,11 @@
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+        {% if stylesheets != None %}
+            {% for sheet in stylesheets %}
+                <link rel="stylesheet" href="{{ sheet }}">
+            {% endfor %}
+        {% endif %}
         {% endblock %}
     </head>
     <body>
