@@ -48,7 +48,7 @@ $ yarn add -D puppeteer
         $ python server.py
         ```
 - Puppeteerでサンプルサイトのスクリーンショット撮影
-    - **screenshot.js**
+    - **puppeteer/screenshot.js**
         ```javascript
         const puppeteer = require('puppeteer');
         
