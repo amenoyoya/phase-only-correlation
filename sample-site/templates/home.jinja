@@ -1,0 +1,32 @@
+{% extends "elements/html5.jinja" %}
+     
+{% block title %}サンプルサイト1{% endblock %}
+ 
+{% block head %}
+    {{ super() }}
+    <meta description="サンプルサイト1">
+{% endblock %}
+         
+{% block content %}
+    <div class="column">
+        <h1 class="title">サンプルサイト1</h1>
+        <div class="content">
+            <dl>
+                <dt>参考</dt>
+                <dd><a href="http://opencv.blog.jp/python/%E4%BD%8D%E7%9B%B8%E9%99%90%E5%AE%9A%E7%9B%B8%E9%96%A2%E6%B3%95">http://opencv.blog.jp/python/位置限定相関法</a></dd>
+            </dl>
+        </div>
+    </div>
+    <div class="column">
+        <h2 class="title">位相限定相関法 (POC：Phase Only Correlation)</h2>
+        <div class="content">
+            <ul>
+                <li>位相限定相関法(POC)とは、２枚の画像の相関（類似度）を計算する手法</li>
+                <li>この手法では、SADなどのように２枚の画像をずらしながら類似度を求めるのではなく、位相特性の相関を取って類似度を計算する<br>
+                    そのために2枚の画像をＦＦＴ(高速フーリエ変換)で位相画像に変換する<br>
+                    さらに2つの位相画像の積を計算して、逆フーリエ変換することで位相限定相関が求まる</li>
+                <li>位相限定相関の相関のピーク位置が画像のずれに対応するため、その位置を探索することで位置ずれが求まる</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
